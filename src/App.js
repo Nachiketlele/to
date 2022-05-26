@@ -1,23 +1,18 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
 import './App.css';
+import Api from "./components/Api"
+import Timer from './components/Timer';
 
 function App() {
+const [toogle,setToogle]=useState(false)
+ 
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={()=>setToogle(!toogle)} >App</button>
+      {toogle?<Api/>:<Timer/>}
+       
     </div>
   );
 }
